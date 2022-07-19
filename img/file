@@ -1,0 +1,57 @@
+EVEN OR ODD
+
+print ("Enter The Number:")
+if let n = readLine ()
+{
+if let num = Int (n)
+{
+if (num % 2 == 0)
+{
+print ("Even Number")
+}
+else
+{
+print ("Odd Number")
+}
+}
+}
+
+
+Prime Numbers
+
+print("Prime Numbers :")
+var n : Int
+func prime(n:Int)
+{
+    var count = 0
+    for h in 1...n
+    {
+        if(n%h == 0)
+        {
+            count = count+1
+        }
+    }
+    if(count == 2)
+    {
+        print((n))
+    }
+}
+for h in 1...10
+{
+    prime(n:h)
+}
+
+Palindrome or non Palindrome
+
+print ("Enter The String:")
+if let string = readLine()
+{
+if String(string.reversed())==string
+{
+print("\(string) Is A Palindrome")
+}
+else
+{
+print("\(string) Is Not Palindrome")
+}
+}
