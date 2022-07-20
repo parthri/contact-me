@@ -1,0 +1,226 @@
+MAD 
+
+EVEN OR ODD
+
+print ("Enter The Number:")
+if let n = readLine ()
+{
+if let num = Int (n)
+{
+if (num % 2 == 0)
+{
+print ("Even Number")
+}
+else
+{
+print ("Odd Number")
+}
+}
+}
+
+
+Prime Numbers
+
+print("Prime Numbers :")
+var n : Int
+func prime(n:Int)
+{
+    var count = 0
+    for h in 1...n
+    {
+        if(n%h == 0)
+        {
+            count = count+1
+        }
+    }
+    if(count == 2)
+    {
+        print((n))
+    }
+}
+for h in 1...10
+{
+    prime(n:h)
+}
+
+Palindrome or non Palindrome
+
+print ("Enter The String:")
+if let string = readLine()
+{
+if String(string.reversed())==string
+{
+print("\(string) Is A Palindrome")
+}
+else
+{
+print("\(string) Is Not Palindrome")
+}
+}
+
+
+
+
+AWD
+
+Practical-2
+
+Aim : a) Find sum of first N numbers.
+
+Code :
+
+<form action="" method="GET">
+<input type="number" name="n" placeholder="n">
+<input type="submit" value="Get" />
+</form>
+<?php
+$n = $_GET["n"];
+$ans = 0;
+for ($i = 0; $i <= $n; $i++){
+$ans += $i;
+}
+echo "<h1>Ans: " . $ans . "</h1>";
+?>
+
+b) Print square value for the numbers between N1 to N2.
+
+Code :
+
+<?php
+$n1 = $_GET["n1"];
+$n2 = $_GET["n2"];
+?>
+<form action="" method="GET">
+<input type="number" placeholder="n1" name="n1" /> <br />
+<input type="number" placeholder="n2" name="n2" /> <br />
+<input type="submit" value="Get" />
+</form>
+<table border="1">
+<thead>
+<tr>
+<th>N<sup>2</sup></th>
+<th>Ans</th>
+</tr>
+</thead>
+<tbody>
+<?php
+for ($i = $n1; $i <=$n2; $i++){
+?>
+<tr>
+<td><?= $i ? $i : 0 ?><sup>2</sup></td>
+<td><?= $i * $i ?></td>
+</tr>
+<?php
+}
+?>
+</tbody>
+</table>
+
+
+
+
+Practical-3
+
+Aim : a) Print the student name with highest marks among 10 students.
+
+CODE :
+
+<?php
+$stud = array(
+"Parth Brahmbhatt" => 99,
+"Ayush Prajapati" => 92,
+"Parth Degama" => 99,
+"Aditya Panelia" => 82,
+"Jyot Reddy" => 86,
+"Riyank Patel" => 75,
+"Dev Desai" => 74,
+"Vasu Lathiya" => 83,
+"Jirmit Balar" => 75,
+"Om Talavia" => 69,
+);
+?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/
+bootstrap.min.css" rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vm
+Vor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+<table class="table table-success table-striped">
+<thead>
+<tr>
+<th scope="col">No</th>
+<th scope="col">Student Name</th>
+<th scope="col">Marks</th>
+</tr>
+</thead>
+<tbody>
+<?php
+arsort($stud);
+$i = 1;
+foreach($stud as $d => $e){
+if($i > 10) break;
+?>
+<tr>
+<th scope='row'> <?= $i++ ?></th>
+<td><?= $d ?></td>
+<td><?= $e ?></td>
+<tr/>
+<?php
+}
+?>
+</tbody>
+</table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+b) Create a function to convert the string in uppercase and lowercase.
+CODE :
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vm
+Vor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+<form action="" method="POST">
+<div class="input-group mb-3">
+<input type="text" name="kl" class="form-control" placeholder="Enter The String" aria-
+label="Recipient's username" aria-describedby="button-addon2">
+<button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
+</div>
+</form>
+</div>
+<div class = "container">
+<?php
+$a = $_POST["kl"];
+echo "String in Lower Case ".strtolower($a);
+echo "<br />";
+echo "String in Uppper Case ".strtoupper($a);
+?>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+crossorigin="anonymous"></script>
+</body>
+</html>
