@@ -109,115 +109,6 @@ return tab;
 }
 
 
-Practical-9
-Aim : Introduction to navigation, navigation drawer and create multi- screen
-application.
-MAIN.DART
-import 'package:flutter/material.dart';
-import 'home.dart';
-void main()
-{
-runApp(const MyApp());
-}
-class MyApp extends StatelessWidget {
-const MyApp
-({super.key});
-@override
-Widget build(BuildContext context) {
-return MaterialApp(
-debugShowCheckedModeBanner: false,
-title: 'Flutter Demo',
-theme: ThemeData(
-primarySwatch: Colors.brown,
-),
-home: HomePage(),
-);
-}
-}
-HOME.DART
-import 'package:flutter/material.dart';
-import 'package:pr7/responsive_helper.dart';// TODO Implement this library.
-class HomePage extends StatefulWidget{
-@override
-_HomePageState createState()=>_HomePageState();
-}
-class _HomePageState extends State<HomePage> {
-@override
-Widget build(BuildContext context){
-return Scaffold(
-appBar: AppBar(
-title: Text('Responsive'),
-),
-body: SafeArea(
-child:CustomeResponsiveWidget(
-mobile:Column(
-children: [
-buildBannerSlider(),
-buildIntroText(context),
-],
-),
-tab:Row(
-children: [
-buildBannerSlider(),
-Expanded(child:buildIntroText(context)),
-],
-),desktop:Container(
-height: 180,
-width: MediaQuery.of(context).size.width,
-child: Row(
-crossAxisAlignment:CrossAxisAlignment.start,
-children: [
-buildBannerSlider(),
-Expanded(child:buildIntroText(context)),
-],
-),
-),
-),
-),
-);
-}
-Widget buildIntroText(BuildContext context){
-return Container(
-child: Text(
-'Hello
-Parth Brahmbhatt
-Pactical - 7',
-style: TextStyle(fontSize: 28),
-),
-);
-}
-Container buildBannerSlider(){
-return Container(
-width: 320,
-height: 180,
-decoration: BoxDecoration(
-gradient: LinearGradient(colors: [Colors.cyanAccent,Colors.lightGreenAccent]),
-borderRadius: BorderRadius.circular(12)
-),
-);
-}
-}
-RESPONSIVE.DART
-import 'package:flutter/material.dart';
-class CustomeResponsiveWidget extends StatelessWidget {
-final Widget mobile;
-final Widget tab;
-final Widget desktop;
-const CustomeResponsiveWidget({super.key,required this.mobile,required this.tab,required
-this.desktop});
-@override
-Widget build(BuildContext context){
-return LayoutBuilder(builder: (context,constraints){
-if(constraints.maxWidth<768){
-return mobile;
-}else{
-return tab;
-}
-});
-}
-}
-
-
 
 
 PRACTICAL - 9
@@ -225,7 +116,6 @@ PRACTICAL - 9
 Aim : Introduction to navigation, navigation drawer and create multi- screen application.
 
 CODE :-
-
 import 'package:flutter/material.dart';
 void main() {
 runApp(const MaterialApp(
