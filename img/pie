@@ -111,6 +111,148 @@ return tab;
 
 
 
+Practical 8 
+
+Aim: Create Expense planner application.
+
+import 'package:flutter/material.dart'; void main() {
+runApp(const MaterialApp(home: MyApp()));
+}
+class MyApp extends StatefulWidget {
+const MyApp({Key? key}) : super(key: key);
+@override
+_MyAppState createState() => _MyAppState();
+}
+class _MyAppState extends State<MyApp> {
+GlobalKey<FormState> _formkey = GlobalKey<FormState>(); TextEditingController txt = TextEditingController(),
+txt1 = TextEditingController(); var t1="",t2="";
+var item =[]; int index=0;
+var balance = 0, income = 0,
+outcome = 0, flag=0;
+@override
+Widget build(BuildContext context)
+{ return Scaffold(
+appBar: AppBar(title: Text("Expense Manager"),), body: Column(
+children: [ Container( height: 150, color:
+Colors.lightGreen, child:
+new Column(
+mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+Text("BALANCE",
+style: TextStyle(fontSize: 16),),
+Text(balance.toString(),
+style: TextStyle(fontSize: 40),),
+Row(
+mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+Row(
+children: [ Icon(Icons.arrow_upward, color: Colors.green,), Column(
+children: [
+Text("Income", textAlign: TextAlign.left,), Text(income.toString(), textAlign: TextAlign.left,)
+]),
+]),
+Row(
+children: [
+Icon(Icons.arrow_downward, color: Colors.red,), Column(
+children: [
+Text("Outcome", textAlign: TextAlign.right,), Text(outcome.toString(), textAlign: TextAlign
+.left,)
+]), ]),
+]),
+],
+),
+),
+Container(
+padding: EdgeInsets.only(top:10), child: Row(
+mainAxisAlignment: MainAxisAlignment.spaceBetween, children:[
+MaterialButton(
+child: Text("Add Income"), color: Colors.blue, onPressed: () async { await viewDialog(context,1);
+},
+),
+MaterialButton(
+child: Text("Add Expense"), color: Colors.red, onPressed: () async { await viewDialog(context,2);
+},
+),
+]),
+),
+Container(
+child: Expanded( child:
+generate(context, index)
+)
+),
+]),
+);
+}
+Widget generate(BuildContext context,index)
+{
+return ListView.builder(
+itemCount: item.length, itemBuilder: (context,index) { return Container(
+margin: EdgeInsets.all(5), padding: EdgeInsets.all(5), height: 40,
+color: Colors.amberAccent, child: Text(
+item[index],
+),
+);
+});
+}
+Future<void> viewDialog(BuildContext context,flag) async
+{
+return await showDialog(context: context, builder: (context) {
+return AlertDialog( title: Text("Enter your details"), content:
+Form(child:
+Container(
+padding: EdgeInsets.all(5), margin: EdgeInsets.all(5), color: Colors.black12, height: 300,
+width: 200, child:Column( key: _formkey,
+mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.center, children: [ Wrap(
+spacing: 20, runSpacing:
+20, children: [ Row(
+children: [ Text("Description: "), SizedBox(
+height: 40,
+width: 100,
+child: TextFormField(controller: txt, onChanged: (val) {setState(()
+{
+t2=val;
+});},
+decoration: InputDecoration( hintText: "Enter description"),),
+)
+],
+),
+Row( children: [
+// Padding(padding: EdgeInsets.all(10)), Text("Amount: "),
+SizedBox( height: 20,
+width: 100, child:
+TextFormField( onChanged: (val) { setState(() {
+t1=val;
+});}, decoration: InputDecoration(hintText: "Enter Amount"),),
+)
+],
+)
+])
+],
+))),
+actions:
+<Widget>[ TextButton( child: Text("Ok"),
+onPressed: () {
+setState(() { if(flag==1)
+{
+if(balance-int.parse(t1)>=0) { outcome += int.parse(t1); balance -= int.parse(t1); item.length=index+1; item[index]=t2+" "+t1; index++;
+}
+}
+if(flag==2)
+{
+income+=int.parse(t1); balance+=int.parse(t1);
+index++;
+}
+});
+Navigator.of(context).pop();
+},
+)
+],
+);
+}
+);
+}
+}
+
+
+
 PRACTICAL - 9
 
 Aim : Introduction to navigation, navigation drawer and create multi- screen application.
