@@ -104,6 +104,36 @@ using System;
   }
   
   
+  
+  
+  Practical 4 
+  
+  write C# code for sorting of array
+  
+  Code :-
+  
+  using System;
+class Pr3 {
+public static void Main(string[] args) {
+int[] arr = new int[] {1, 9, 6, 7, 5, 40};
+Array.Sort(arr);
+Console.WriteLine("Ascending: \n");
+foreach(int value in arr)
+{
+Console.Write("{0} ",value);
+}
+Array.Reverse(arr);
+Console.WriteLine("\n\nDescending: \n");
+foreach(int value in arr)
+{
+Console.Write("{0} ",value);
+}
+}
+}
+  
+  
+  
+  
   Practical 5
   
   write C# code to perform Max,Min,Sqrt,Abs,round function
